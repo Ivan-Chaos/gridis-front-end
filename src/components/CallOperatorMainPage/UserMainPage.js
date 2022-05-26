@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getSingleCallOperator } from '../../API/callOperator';
+import CreateServiceRequest from './components/CreateServiceRequest/CreateServiceRequest';
 import EnterReadings from './components/EnterReadings/EnterReadings';
 
 import classes from './UserMainPage.module.scss'
@@ -34,6 +35,11 @@ const UserMainPage = () => {
             <section>
                 <EnterReadings />
             </section>  
+            <hr></hr>
+            <section>
+                <CreateServiceRequest />
+            </section>
+
         </main>
     </div>);
 }
