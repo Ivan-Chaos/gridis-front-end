@@ -229,7 +229,7 @@ const CreateServiceRequest = () => {
                                             serviceId: selectedService.id,
                                             residenceId: selectedResidence.id,
                                             callOperatorId: operatorID,
-                                            meterModelId: selectedMeterModel ? selectedMeterModel.id : selectedResidence.installedMeter.id,
+                                            meterModelId: selectedMeterModel ? selectedMeterModel.id : selectedResidence.installedMeter.model.id,
                                             receivedAt: new Date().toISOString()
                                         });
 

@@ -55,7 +55,15 @@ const BaseLayout = (props) => {
 
     return (<div className={classes.BaseLayout}>
         <nav>
-            <h1 onClick={() => navigate('/')}>Gridis⚡</h1>
+            <h1 onClick={() => {
+                if(user_role==='CallOperator'){
+                    navigate('/operator-main');
+                }else if(user_role==='Engineer'){
+                    navigate('/engineer-main');
+                }else if(user_role==="Admin"){
+                    navigate('/admin-main')
+                }
+            }}>Gridis⚡</h1>
             {user &&
                 <div className={classes.userDiv}>
                     <div className={classes.link} onClick={() => navigate('/diseases-model')}>Diseases model</div>

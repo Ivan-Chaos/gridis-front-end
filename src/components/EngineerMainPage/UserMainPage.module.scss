@@ -22,6 +22,10 @@
         h2{
             font-weight: 400 !important;
         }
+
+        h3 {
+            font-weight: 200 !important;
+        }
     }
 
     main{
@@ -41,9 +45,11 @@
 
         section{
             border-top: 1px solid rgb(237, 236, 236);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+
+            h1{
+                font-weight: 400;
+                font-size: 20pt;
+            }
 
             h2{
                 cursor: pointer;
