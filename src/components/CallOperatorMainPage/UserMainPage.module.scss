@@ -44,27 +44,9 @@
         }
 
         section{
-            border-top: 1px solid rgb(237, 236, 236);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-
-            h2{
-                cursor: pointer;
-            }
-
-            .continueSection{
-                display: flex;
-                align-items: center;
-
-                div{
-                    margin-right: 1em;
-                }
-
-                .Button{
-                    margin-right: 0.5em;
-                }
-            }
+            justify-content: center;
         }
         
     }

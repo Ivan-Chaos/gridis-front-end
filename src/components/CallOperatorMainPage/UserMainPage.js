@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getSingleCallOperator } from '../../API/callOperator';
+import EnterReadings from './components/EnterReadings/EnterReadings';
 
 import classes from './UserMainPage.module.scss'
 
@@ -29,8 +30,10 @@ const UserMainPage = () => {
             <h3>Ваш номер лінії: <b>{userData?.assignedPhoneNumber}</b></h3>
         </header>
         <hr></hr>
-        <main>        
-
+        <main>      
+            <section>
+                <EnterReadings />
+            </section>  
         </main>
     </div>);
 }

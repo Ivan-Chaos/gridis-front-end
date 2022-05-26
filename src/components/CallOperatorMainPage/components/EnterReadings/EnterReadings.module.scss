@@ -1,0 +1,31 @@
+.EnterReadings{
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 1em;
+    max-width: 600px;
+    .readingsCarousel{
+        .readingsItem{
+            margin-bottom: 3em;
+            z-index: 50 !important;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .noReadings{
+                font-weight: 400;
+                color: gray;
+            }
+
+            .doubleCol{
+                display: flex;
+            }
+
+            .readingsSection{
+                .readingsField{
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

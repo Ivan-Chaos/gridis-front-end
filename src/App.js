@@ -10,6 +10,9 @@ import BaseLayout from './components/BaseLayout/BaseLayout';
 import { Provider } from 'react-redux';
 import store from './store/store'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './fonts.css'
 
 
@@ -30,6 +33,7 @@ function App() {
             return (<Route key={route.path} path={route.path} element={route.element} />);
           })}
         </Routes>
+        <ToastContainer position="bottom-left"/>
       </BaseLayout>
     </Provider>
 
