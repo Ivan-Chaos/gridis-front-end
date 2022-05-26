@@ -12,9 +12,10 @@ import { getAllResidences } from '../../../../API/residence';
 import { getAllReadings, postReadingsFromOperator, updateReadings } from '../../../../API/readings';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const EnterReadings = () => {
-    const operatorID = useSelector(state=>state.account.id);
+const EnterReadings = ({ setOpen }) => {
+    const operatorID = useSelector(state => state.account.id);
 
     const [currentTab, setCurrentTab] = useState(0);
     const [cities, setCities] = useState([]);
@@ -92,11 +93,26 @@ const EnterReadings = () => {
             {/* TAB 0 */}
             <div className={classes.readingsItem}>
                 <h1>Внести показники</h1>
-                <Button
-                    onClick={() => setCurrentTab(1)}
-                >
-                    Розпочати
-                </Button>
+                <p><span style={{ color: 'red' }}>Увага!</span> Необхідно узгодити всю інформацію попередньо з користувачем. Безпосередньо перед внесенням не забудьте повторно звірити всі дані</p>
+                <div style={{ display: 'flex' }}>
+                    <Button
+                        variant="contained"
+                        color="success"
+                        onClick={() => setCurrentTab(1)}
+                        style={{ marginRight: '1em' }}
+                    >
+                        Розпочати
+                    </Button>
+
+                    <Button
+                        variant="outlined"
+                        color="error"
+                        onClick={() => setOpen(false)}
+                    >
+                        Вихід
+                    </Button>
+                </div>
+
             </div>
 
             {/* TAB 1 */}
@@ -116,15 +132,18 @@ const EnterReadings = () => {
                     />
                 </div>
 
-                <div>
+                <div style={{ marginTop: '10px' }}>
                     <Button
                         onClick={() => setCurrentTab(0)}
+                        style={{ marginRight: '1em' }}
                     >
-                        Назад
+                        <ArrowBackIcon />
                     </Button>
 
                     <Button
                         onClick={() => setCurrentTab(2)}
+                        variant='outlined'
+                        disabled={!selectedCity}
                     >
                         Продовжити
                     </Button>
@@ -146,15 +165,18 @@ const EnterReadings = () => {
                         renderInput={(params) => <TextField {...params} label="Район" />}
                     />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px' }}>
                     <Button
                         onClick={() => setCurrentTab(1)}
+                        style={{ marginRight: '1em' }}
                     >
-                        Назад
+                        <ArrowBackIcon />
                     </Button>
 
                     <Button
                         onClick={() => setCurrentTab(3)}
+                        variant='outlined'
+                        disabled={!selectedDistrict}
                     >
                         Продовжити
                     </Button>
@@ -179,15 +201,18 @@ const EnterReadings = () => {
                         renderInput={(params) => <TextField {...params} label="Вулиця" />}
                     />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px' }}>
                     <Button
                         onClick={() => setCurrentTab(2)}
+                        style={{ marginRight: '1em' }}
                     >
-                        Назад
+                        <ArrowBackIcon />
                     </Button>
 
                     <Button
                         onClick={() => setCurrentTab(4)}
+                        variant='outlined'
+                        disabled={!selectedStreet}
                     >
                         Продовжити
                     </Button>
@@ -212,11 +237,13 @@ const EnterReadings = () => {
                         renderInput={(params) => <TextField {...params} label="Номер будинку" />}
                     />
                 </div>
-                <div>
+
+                <div style={{ marginTop: '10px' }}>
                     <Button
                         onClick={() => setCurrentTab(3)}
+                        style={{ marginRight: '1em' }}
                     >
-                        Назад
+                        <ArrowBackIcon />
                     </Button>
 
                     <Button
@@ -228,10 +255,13 @@ const EnterReadings = () => {
                                 setCurrentTab(5)
                             }
                         }}
+                        variant='outlined'
+                        disabled={!selectedAddress}
                     >
                         Продовжити
                     </Button>
                 </div>
+
             </div>
 
             {/* TAB 5 */}
@@ -252,15 +282,18 @@ const EnterReadings = () => {
                         renderInput={(params) => <TextField {...params} label="Номер квартири" />}
                     />
                 </div>
-                <div>
+                <div style={{ marginTop: '10px' }}>
                     <Button
                         onClick={() => setCurrentTab(4)}
+                        style={{ marginRight: '1em' }}
                     >
-                        Назад
+                        <ArrowBackIcon />
                     </Button>
 
                     <Button
                         onClick={() => setCurrentTab(6)}
+                        variant='outlined'
+                        disabled={!selectedStreet}
                     >
                         Продовжити
                     </Button>
@@ -316,7 +349,7 @@ const EnterReadings = () => {
 
                     </h2>
                 </div>
-                <div>
+                <div style={{display: 'flex', alignItems: 'flex-start'}}>
                     <Button
                         onClick={() => {
                             if (selectedAddress.isPrivateBuilding) {
@@ -327,10 +360,11 @@ const EnterReadings = () => {
                             }
                         }}
                     >
-                        Назад
+                        <ArrowBackIcon />
                     </Button>
 
                     <Button
+                        color="error"
                         onClick={() => {
                             setCurrentTab(0);
                             setSelectedCity(null);
@@ -340,11 +374,14 @@ const EnterReadings = () => {
                             setSelectedResidence(null);
                             setSelectedReadings(null);
                         }}
+                        style={{marginRight: '1em'}}
                     >
                         Скасувати
                     </Button>
 
                     <Button
+                        variant={'contained'}
+                        color='success'
                         onClick={() => {
                             if (!!selectedReadings) {
                                 const promise = updateReadings(
@@ -380,7 +417,7 @@ const EnterReadings = () => {
                                 )
                             }
                             else {
-                               
+
                                 const promise = postReadingsFromOperator(
                                     operatorID,
                                     {

@@ -1,4 +1,4 @@
-.UserMainPage{
+.UserMainPage {
     background-color: white;
     width: 100%;
     margin-top: 1em;
@@ -9,46 +9,86 @@
     padding-top: 0.5em;
     height: fit-content;
 
-    header{
-        font-family: 'Raleway', sans-serif;
-        h1{
+    header {
+        font-family: "Raleway", sans-serif;
+        h1 {
             font-weight: 200;
             font-size: 32pt;
-            span{
+            span {
                 font-weight: 500;
             }
         }
 
-        h2{
+        h2 {
             font-weight: 400 !important;
         }
 
-        h3{
+        h3 {
             font-weight: 200 !important;
         }
     }
 
-    main{
-        font-family: 'Raleway', sans-serif;
+    main {
+        font-family: "Raleway", sans-serif;
         flex-direction: column;
-        
-        h1{
+
+        h1 {
             font-weight: 300;
         }
 
-        .diagnosticDiv{
+        .diagnosticDiv {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid gray;
         }
 
-        section{
+        section {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 2em;
+
+            .gradbut {
+                color: white;
+                font-family: "Raleway";
+                background: rgb(34, 193, 195);
+                background: linear-gradient(163deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+                border: none;
+                border-radius: 10px;
+                font-size: 18pt;
+                height: 2em;
+                padding-right: 1em;
+                padding-left: 1em;
+                margin-right: 1em;
+                transition: all 0.5s ease-in-out;
+                cursor: pointer;
+                font-weight: 600;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            .gradbut2 {
+                background: rgb(195, 34, 53);
+                background: linear-gradient(163deg, rgba(195, 34, 53, 1) 0%, rgba(249, 170, 0, 1) 100%);
+                border: none;
+                border-radius: 10px;
+                font-size: 18pt;
+                height: 2em;
+                padding-right: 1em;
+                padding-left: 1em;
+                color: white;
+                font-family: "Raleway";
+                transition: all 0.5s ease-in-out;
+                cursor: pointer;
+                font-weight: 600;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
         }
-        
     }
 }
