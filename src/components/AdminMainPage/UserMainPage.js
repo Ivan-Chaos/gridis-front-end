@@ -7,6 +7,8 @@ import { getSingleAdmin } from '../../API/admin';
 import { getAllTarrifs } from '../../API/tarrif';
 import CitiesTable from './components/CitiesTable/CitiesTable';
 import HumanResources from './components/HumanResources/HumanResources';
+import ManufacturersTable from './components/ManufacturersTable/Manufacturers';
+import ServicesPanel from './components/ServicesPanel/ServicesPanel';
 
 import classes from './UserMainPage.module.scss'
 
@@ -58,14 +60,31 @@ const UserMainPage = () => {
                 <h2 onClick={() => navigate('/tarrif-management')}>Інформація про тарифи</h2>
             </div>
             <hr style={{ width: '100%' }}></hr>
-            <div>
-                <h1>Міста</h1>
-                <CitiesTable />
-            </div>
-            <hr style={{ width: '100%', marginTop: '20px' }}></hr>
+
             <div>
                 <h1>Людські ресурси</h1>
                 <HumanResources />
+            </div>
+            <hr style={{ width: '100%', marginTop: '20px' }}></hr>
+
+            <div className={classes.billsDiv}>
+                <h1>Керування рахунками</h1>
+                <div className={classes.billPanel}>
+                    <div className={classes.singleSection}>
+                        <h1 onClick={() => navigate('/bill-management')}>Переглянути рахунки</h1>
+                    </div>
+                    <div className={classes.verticalSeparator}></div>
+                    <div className={classes.singleSection}>
+                        <h1 onClick={() => navigate('/mailing-and-generation')}>Формування та розсилка</h1>
+                    </div>
+                </div>
+            </div>
+
+            <hr style={{ width: '100%', marginTop: '20px' }}></hr>
+
+            <div>
+                <h1>Управління мережею</h1>
+                <ServicesPanel />
             </div>
         </main>
     </div>);

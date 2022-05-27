@@ -7,7 +7,12 @@ import PeopleManagement from "./components/PeopleManagement/PeopleManagement";
 import EngineerManagement from "./components/EngineerManagement/EngineerManagement";
 import CallOperatorManagement from "./components/CallOperatorManagement/CallOperatorManagement";
 import AdminManagement from "./components/AdminManagement/AdminManagement";
-
+import BillManagement from "./components/BillManagement/BillManagement";
+import GenerationAndMailing from "./components/GenerationAndMailing/GenerationAndMailing";
+import CitiesListing from "./components/CitiesListing/CitiesListing";
+import MetersListing from "./components/MetersListing/MetersListing";
+import ServicesListing from "./components/ServicesListing/ServicesListing";
+import InvoicesListing from "./components/InvoicesListing/InvoicesListing";
 
 export const routes = [
     {
@@ -90,5 +95,51 @@ export const routes = [
         users: ['Admin']
     },
 
+    {
+        path: '/bill-management',
+        exact: true,
+        element: <BillManagement />,
+        isProtected: false,
+        users: ['Admin']
+    },
 
+    {
+        path: '/mailing-and-generation',
+        exact: true,
+        element: <GenerationAndMailing />,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/cities',
+        exact: true,
+        element: <CitiesListing />,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/meters',
+        exact: true,
+        element: <MetersListing />,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/services',
+        exact: true,
+        element: <ServicesListing />,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/invoices',
+        exact: true,
+        element: <InvoicesListing />,
+        isProtected: false,
+        users: ['Admin']
+    },
 ]

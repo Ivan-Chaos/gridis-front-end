@@ -106,5 +106,58 @@
                 }
             }
         }
+
+        .billsDiv {
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1{
+                margin-bottom: 0;
+            }
+
+            h2{
+                font-size: 12pt;
+                color: rgb(2, 119, 119);
+                border-bottom: 2px solid rgba(2, 119, 119, 0.372);
+                width: fit-content;
+                cursor: pointer !important;
+            }
+            .billPanel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .singleSection{
+                    display: flex;
+                    justify-content: center;
+                    h1{
+                        font-weight:200;
+                        font-size: 28pt;
+                        margin-bottom: 10px;
+                        transition: all 0.5s;
+
+                        &:hover{
+                            color: orangered;
+                            cursor: pointer;
+                            transform: scale(1.02);
+                        }
+                    }
+                    p{
+                        font-weight: 600;
+                    }
+                }
+                
+                .verticalSeparator {
+                    width: 1px;
+                    height: 70px;
+                    border-right: 1px solid rgb(158, 158, 158);
+                    margin-left: 2em;
+                    margin-right: 2em;
+                }
+            }
+        }
     }
 }
