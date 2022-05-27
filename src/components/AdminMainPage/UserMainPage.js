@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getSingleAdmin } from '../../API/admin';
 import { getAllTarrifs } from '../../API/tarrif';
+import CitiesTable from './components/CitiesTable/CitiesTable';
 
 import classes from './UserMainPage.module.scss'
 
@@ -54,6 +55,11 @@ const UserMainPage = () => {
                     </div>
                 </div>
                 <h2 onClick={()=>navigate('/tarrif-management')}>Інформація про тарифи</h2>
+            </div>
+            <hr style={{width: '100%'}}></hr>
+            <div>
+                <h1>Міста</h1>
+                <CitiesTable />
             </div>
         </main>
     </div>);
