@@ -3,6 +3,10 @@ import {default as AdminMain} from "./components/AdminMainPage/UserMainPage";
 import {default as EngineerMain} from './components/EngineerMainPage/UserMainPage';
 import {default as OperatorMain} from './components/CallOperatorMainPage/UserMainPage'
 import TarrifManagement from "./components/TarrifManagement/TarrifManagement";
+import PeopleManagement from "./components/PeopleManagement/PeopleManagement";
+import EngineerManagement from "./components/EngineerManagement/EngineerManagement";
+import CallOperatorManagement from "./components/CallOperatorManagement/CallOperatorManagement";
+import AdminManagement from "./components/AdminManagement/AdminManagement";
 
 
 export const routes = [
@@ -52,5 +56,39 @@ export const routes = [
         element: <TarrifManagement />,
         isProtected: false,
         users: ['Admin']
-    }
+    },
+
+    {
+        path: '/people',
+        exact: true,
+        element: <PeopleManagement />,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/engineers',
+        exact: true,
+        element: <EngineerManagement />,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/operators',
+        exact: true,
+        element: <CallOperatorManagement/>,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+    {
+        path: '/admins',
+        exact: true,
+        element: <AdminManagement/>,
+        isProtected: false,
+        users: ['Admin']
+    },
+
+
 ]

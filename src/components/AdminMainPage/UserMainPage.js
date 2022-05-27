@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { getSingleAdmin } from '../../API/admin';
 import { getAllTarrifs } from '../../API/tarrif';
 import CitiesTable from './components/CitiesTable/CitiesTable';
+import HumanResources from './components/HumanResources/HumanResources';
 
 import classes from './UserMainPage.module.scss'
 
@@ -44,22 +45,27 @@ const UserMainPage = () => {
                 <h1>Поточний тариф</h1>
                 <div className={classes.tarrifPanel}>
                     <div className={classes.singleSection}>
-                        <h1 style={{color: 'orange'}}>{currentTarrif?.dayTarrifCost}</h1>
+                        <h1 style={{ color: 'orange' }}>{currentTarrif?.dayTarrifCost}</h1>
                         <p>Денна вартість</p>
                     </div>
                     <div className={classes.verticalSeparator}></div>
-                    
+
                     <div className={classes.singleSection}>
-                        <h1 style={{color: 'blue'}}>{currentTarrif?.nightTarrifCost}</h1>
+                        <h1 style={{ color: 'blue' }}>{currentTarrif?.nightTarrifCost}</h1>
                         <p>Нічна вартість</p>
                     </div>
                 </div>
-                <h2 onClick={()=>navigate('/tarrif-management')}>Інформація про тарифи</h2>
+                <h2 onClick={() => navigate('/tarrif-management')}>Інформація про тарифи</h2>
             </div>
-            <hr style={{width: '100%'}}></hr>
+            <hr style={{ width: '100%' }}></hr>
             <div>
                 <h1>Міста</h1>
                 <CitiesTable />
+            </div>
+            <hr style={{ width: '100%', marginTop: '20px' }}></hr>
+            <div>
+                <h1>Людські ресурси</h1>
+                <HumanResources />
             </div>
         </main>
     </div>);
