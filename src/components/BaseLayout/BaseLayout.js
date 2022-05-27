@@ -66,7 +66,6 @@ const BaseLayout = (props) => {
             }}>Gridis⚡</h1>
             {user &&
                 <div className={classes.userDiv}>
-                    <div className={classes.link} onClick={() => navigate('/diseases-model')}>Diseases model</div>
                     <PersonIcon className={classes.personIcon} />
                     <div className={classes.username} onClick={()=>navigate('/')}>{account?.person?.email}</div>
                     <div className={classes.logout} onClick={() => logout()}>Log out</div>
@@ -75,7 +74,6 @@ const BaseLayout = (props) => {
 
             {!user &&
                 <div className={classes.userDiv}>
-                    <div className={classes.link} onClick={() => navigate('/diseases-model')}>Diseases model</div>
                     <div className={classes.logout} onClick={() => navigate('/login')}>Sign in</div>
                 </div>
             }

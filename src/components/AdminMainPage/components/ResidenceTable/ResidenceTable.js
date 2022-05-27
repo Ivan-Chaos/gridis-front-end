@@ -22,6 +22,28 @@ import axios from 'axios';
 import { getAllPeople } from '../../../../API/people';
 import { getAllInstalledMeters } from '../../../../API/installedMeter';
 
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
     Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
@@ -101,7 +123,54 @@ const ResidenceTable = ({ addressID }) => {
                 onRowDelete: oldData => deleteResidence(oldData.id)
             }}
 
+            detailPanel={(rowData) => {
+                const options = {
+                    responsive: true,
+                    bezierCurve :true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Рівні споживання електроенергії за місяцями',
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
 
+                    elements: {
+                        line: {
+                            tension: 0.5
+                        }
+                    }
+                };
+
+                const labels = rowData.bills.map(bill => String(bill.month).padStart(2, 0) + "/" + bill.year);
+
+                const data = {
+                    labels,
+                    datasets: [
+                        {
+                            label: 'Нічне споживання енергії',
+                            data: rowData.bills.map(bill => bill.nightSum / bill.tarrif.nightTarrifCost),
+                            borderColor: 'rgb(102, 102, 255)',
+                            backgroundColor: 'rgba(102, 102, 255, 0.5)',
+                        },
+                        {
+                            label: 'Денне споживання електроенергії',
+                            data: rowData.bills.map(bill => bill.daySum / bill.tarrif.dayTarrifCost),
+                            borderColor: 'rgb(255, 204, 0)',
+                            backgroundColor: 'rgba(255, 204, 0, 0.5)',
+                        },
+                    ],
+                };
+
+                return <Line options={options} data={data} />;
+            }}
 
         />
     </div>);
