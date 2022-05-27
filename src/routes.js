@@ -2,6 +2,7 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import {default as AdminMain} from "./components/AdminMainPage/UserMainPage";
 import {default as EngineerMain} from './components/EngineerMainPage/UserMainPage';
 import {default as OperatorMain} from './components/CallOperatorMainPage/UserMainPage'
+import TarrifManagement from "./components/TarrifManagement/TarrifManagement";
 
 
 export const routes = [
@@ -43,5 +44,13 @@ export const routes = [
         element: <LoginPage />,
         isProtected: false,
         users: ['CallOperator', 'Engineer', 'Admin']
+    },
+
+    {
+        path: '/tarrif-management',
+        exact: true,
+        element: <TarrifManagement />,
+        isProtected: false,
+        users: ['Admin']
     }
 ]

@@ -1,4 +1,4 @@
-.UserMainPage{
+.UserMainPage {
     background-color: white;
     width: 100%;
     margin-top: 1em;
@@ -9,59 +9,102 @@
     padding-top: 0.5em;
     height: fit-content;
 
-    header{
-        font-family: 'Raleway', sans-serif;
-        h1{
+    header {
+        font-family: "Raleway", sans-serif;
+        h1 {
             font-weight: 200;
             font-size: 32pt;
-            span{
+            span {
                 font-weight: 500;
             }
         }
 
-        h2{
+        h2 {
             font-weight: 400 !important;
         }
     }
 
-    main{
-        font-family: 'Raleway', sans-serif;
+    main {
+        font-family: "Raleway", sans-serif;
         flex-direction: column;
-        
-        h1{
+
+        h1 {
             font-weight: 300;
         }
 
-        .diagnosticDiv{
+        .diagnosticDiv {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid gray;
         }
 
-        section{
+        section {
             border-top: 1px solid rgb(237, 236, 236);
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            h2{
+            h2 {
                 cursor: pointer;
             }
 
-            .continueSection{
+            .continueSection {
                 display: flex;
                 align-items: center;
 
-                div{
+                div {
                     margin-right: 1em;
                 }
 
-                .Button{
+                .Button {
                     margin-right: 0.5em;
                 }
             }
         }
-        
+
+        .tarrifDiv {
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1{
+                margin-bottom: 0;
+            }
+
+            h2{
+                font-size: 12pt;
+                color: rgb(2, 119, 119);
+                border-bottom: 2px solid rgba(2, 119, 119, 0.372);
+                width: fit-content;
+                cursor: pointer !important;
+            }
+            .tarrifPanel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .singleSection{
+                    h1{
+                        font-weight:200;
+                        font-size: 28pt;
+                        margin-bottom: 10px;
+                    }
+                    p{
+                        font-weight: 600;
+                    }
+                }
+                
+                .verticalSeparator {
+                    width: 1px;
+                    height: 90px;
+                    border-right: 1px solid rgb(158, 158, 158);
+                    margin-left: 2em;
+                    margin-right: 2em;
+                }
+            }
+        }
     }
 }
